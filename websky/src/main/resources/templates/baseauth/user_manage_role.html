@@ -1,0 +1,65 @@
+<% directive dynamic;
+layout("/templates/layout/_container.html"){ %>
+<link href="${ctxPath}/static/js/plugins/picklist/pickList.css" rel="stylesheet">
+
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal" id="userInfoForm">
+
+
+            <div class="row">
+
+                <div class="col-sm-7">待分配角色</div>
+                <div class="col-sm-5">${user.userName}现有角色:</div>
+                <div class="col-sm-12">
+                    <div id="rolePickList"></div>
+                </div>
+
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="roleSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="UserInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="${ctxPath}/static/js/plugins/picklist/pickList.js"></script>
+<script src="${ctxPath}/static/module/baseauth/user_manage_info.js"></script>
+<script>
+    var val = ${pickListData};
+    var pick = $("#rolePickList").pickList({data: val});
+    function roleSubmit(){
+        var roleIds = [];//获取选择的角色
+        var pickedNodes = pick.getValues();
+        for(var index in pickedNodes){
+            roleIds[index] = pickedNodes[index].id;
+        }
+
+        var roleInfo = {};//组装提交信息
+        roleInfo.userId = '${user.userId}';
+        roleInfo.roleIds = roleIds.join();
+
+        //数据提交
+        $.ajax({
+            url: Aexit.ctxPath + "/user/set_roles",
+            data: roleInfo,
+            type: "post",
+            dataType: "json", //表示返回值类型，不必须
+            success:function (data) {
+                if(data.code == 0) {
+                    window.parent.UserTable.table.refresh();
+                    UserInfoDlg.close();
+                } else {
+                    Aexit.error(data.message);
+                }
+            }
+        })
+    }
+</script>
+
+<% } %>

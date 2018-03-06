@@ -1,0 +1,24 @@
+<% layout("/templates/layout/_container.html"){ %>
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal" id="orgInfoForm">
+            <input type="hidden" id = "orgPid" value="">
+            <div class="row">
+                <#input id="orgName" label="组织名称"/>
+                <#input id="address" label="组织地址"/>
+                <#buttoninput id="orgFatherName" label="上级组织" clickFun="OrgInfoDlg.openOrgZtree()" />
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="OrgInfoDlg.addSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="OrgInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="${ctxPath}/static/module/baseauth/org_manage_info.js"></script>
+<% } %>

@@ -1,0 +1,40 @@
+<% layout("/templates/layout/_container.html"){ %>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>字典管理</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-lg-10 col-sm-9">
+                                <div class="row">
+                                    <#namequery id="dicClass" name="dicClass" label="类名" />
+                                    <#namequery id="dicValue" name="dicValue" label="数据库存值" />
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-3">
+                                <div class="row">
+                                    <div class="col-lg-12 col-sm-12">
+                                        <#button name="搜索" icon="fa-search" clickFun="DictionaryTable.search()"/>
+                                        <#button name="重置" icon="fa-trash" clickFun="DictionaryTable.resetSearch()" space="true"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hidden-xs" id="dictionaryTableToolbar" role="group">
+                            <#button name="添加" icon="fa-plus" clickFun="DictionaryTable.openAddRole()"/>
+                            <#button name="修改" icon="fa-edit" clickFun="DictionaryTable.openEditRole()" space="true"/>
+                            <#button name="删除" icon="fa-remove" clickFun="DictionaryTable.delDictionary()" space="true"/>
+                        </div>
+                        <#table id="dictionaryTable"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${ctxPath}/static/module/baseauth/dictionary_manage.js"></script>
+<%}%>

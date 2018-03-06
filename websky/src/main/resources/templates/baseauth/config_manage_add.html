@@ -1,0 +1,25 @@
+<% layout("/templates/layout/_container.html"){ %>
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal" id="configInfoForm">
+
+            <div class="row">
+                <#input id="configGroup" label="分组"/>
+                <#input id="configKey" label="键"/>
+                <#input id="configValue" label="值"/>
+                <#input id="description" label="描述"/>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="ConfigInfoDlg.addSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="ConfigInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="${ctxPath}/static/module/baseauth/config_manage_info.js"></script>
+<% } %>

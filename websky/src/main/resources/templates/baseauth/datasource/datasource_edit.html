@@ -1,0 +1,36 @@
+<% directive dynamic;
+layout("/templates/layout/_container.html"){%>
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal" id="datasourceInfoForm">
+
+            <input type="hidden" id="id" value="${id}">
+
+            <div class="row">
+                <#input id='dbFlag' label='标志'  value='${sysDb.dbFlag}' />
+                <#input id='dbName' label='数据库名称'  value='${sysDb.dbName}' />
+                <#input id='dbType' label='数据库类型'  value='${sysDb.dbType}' />
+                <#input id='dbRw' label='数据库读写类型'  value='${sysDb.dbRw}' />
+                <#input id='conUrl' label='链接url'  value='${sysDb.conUrl}' />
+                <#input id='conIp' label='链接ip'  value='${sysDb.conIp}' />
+                <#input id='conPort' label='连接端口'  value='${sysDb.conPort}' />
+                <#input id='conUsername' label='用户名'  value='${sysDb.conUsername}' />
+                <#input id='conPassword' label='密码'  value='${sysDb.conPassword}' />
+                <#input id='conTimeout' label='链接超时时间设置'  value='${sysDb.conTimeout}' />
+                <#input id='poolMaxtotal' label='连接池最大容量'  value='${sysDb.poolMaxtotal}' />
+                <#input id='poolMaxidle' label='链接池内最大空闲链接数量'  value='${sysDb.poolMaxidle}' />
+                <#input id='poolMinidle' label='连接池内最小空闲链接数量'  value='${sysDb.poolMinidle}' />
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="DatasourceInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="DatasourceInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/module/baseauth/datasource/datasource_info.js"></script>
+<%}%>

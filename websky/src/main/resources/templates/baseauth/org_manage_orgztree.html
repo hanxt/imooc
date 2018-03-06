@@ -1,0 +1,29 @@
+<% layout("/templates/layout/_container.html"){ %>
+<div class="col-sm-4  col-sm-offset-4">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>组织机构</h5>
+        </div>
+        <div class="ibox-content">
+            <div class="row row-lg">
+                <div class="col-sm-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-content" style="border:none !important; ">
+                            <div class="form-horizontal">
+                                <div class="row">
+                                    <div class="col-sm-12" >
+                                        <div class="panel-body dept-tree">
+                                            <ul id="orgZtree" class="ztree"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${ctxPath}/static/module/baseauth/org_manage_info.js"></script>
+<%}%>

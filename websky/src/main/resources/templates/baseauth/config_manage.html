@@ -1,0 +1,26 @@
+<% layout("/templates/layout/_container.html"){ %>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>系统配置</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="hidden-xs" id="configTableToolbar" role="group">
+                                <#button name="添加" icon="fa-plus" clickFun="ConfigTable.openAddInfo()"/>
+                                <#button name="修改" icon="fa-edit" clickFun="ConfigTable.openEditConfig()" space="true"/>
+                                <#button name="删除" icon="fa-remove" clickFun="ConfigTable.delConfig()" space="true"/>
+                            </div>
+                            <#table id="configTable"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${ctxPath}/static/module/baseauth/config_manage.js"></script>
+<%}%>

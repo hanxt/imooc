@@ -1,0 +1,349 @@
+.middle-box {
+	background: url("../img/loginbox.png") no-repeat center center;
+	margin-top: -214px;
+	margin-left: -296px;
+	width: 597px;
+	height: 529px;
+ *margin-top: -244px !important;
+ *margin-left: -330px !important;
+}
+.loginscreen.middle-box {
+	width: 597px;
+	max-width: 597px;
+	padding: 40px;
+ *width: 597px !important;
+ *max-width: 597px !important;
+}
+.logo-name {
+	background: url("../img/logo1.png") no-repeat center center;
+ *top: -110px !important;
+}
+.form-control:focus, .single-line:focus {
+	border-color: #00a33e;
+	border-color: #00a33e !important;
+}
+.form-control:focus, .has-error .form-control:focus {
+	border-color: #00a33e;
+}
+.form-control, .single-line {
+	border: 1px solid #ddd;
+}
+.btn-primary {
+	background-color: #00a33e;
+	border-color: #00a33e;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+	background-color: #33b565;
+	border-color: #33b565;
+}
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.focus:active, .btn-primary:active:focus, .btn-primary:active:hover, .open > .dropdown-toggle.btn-primary.focus, .open > .dropdown-toggle.btn-primary:focus, .open > .dropdown-toggle.btn-primary:hover {
+	background-color: #4cbe78;
+	border-color: #4cbe78;
+}
+.btn {
+	margin-top: 15px;
+}
+.form-group {
+	margin-bottom: 8px;
+}
+/*后台页面样式*/
+/*绿色皮肤left*/
+body.skin_green .nav-header {
+	background-color: #20253a;
+	border-bottom: 1px solid #1a1c20;
+	margin-bottom: 8px;
+}
+body.skin_green li.nav-header {
+	border-bottom: 1px solid #1b2135;
+}
+.skin_green.navbar-static-side {
+	background-color: #282E45;
+	background-image: none;
+}
+.skin_green.nav-header {
+	display: block;
+	padding: 22px 5px 15px 5px;
+	background-image: none;
+}
+.skin_green.nav-header .profile-element>span {
+	border-radius: 50%;
+	background-color: #fff;
+	border: 3px solid #1AB394;
+	display: block;
+	height: 60px;
+	width: 60px;
+	margin: -3px auto 0 auto;
+	text-align: center;
+}
+.skin_green .img-circle {
+	border-radius: 50%;
+	height: 54px;
+	width: 58px;
+	margin: 0;
+	padding: 1px;
+}
+.skin_green .profile-element {
+	text-align: center;
+}
+.skin_green .nav-header a {
+	color: #fff;
+}
+.skin_green .nav-header .text-muted {
+	color: #f6f6f6;
+}
+.skin_green body.mini-navbar .nav-header {
+	background-color: transparent;
+}
+.skin_green .nav > li > a {
+	color: #c9d4f6;
+}
+.skin_green .mini-navbar .nav > li > a {
+	padding-bottom: 33px;
+}
+.skin_green .nav > li.active {
+	border-left: none;
+}
+.skin_green .nav > li.active > a {
+	background-color: #394263;
+	border-left: none;
+}
+.skin_green .nav.navbar-right > li > a {
+	color: #fff;
+	opacity: 1;
+}
+.skin_green .nav > li > a i {
+	margin-right: 0;
+	width: 24px;
+}
+.skin_green .nav > li.active, .navbar-default .nav > li > a:hover, .navbar-default .nav > li > a:focus, .page-tabs a.active:hover, .page-tabs a.active i:hover {
+	color: #FFFFFF;
+	opacity: 1;
+}
+.skin_green .navbar .nav > li > a:hover {
+	background-image: none;
+	background-color: #272930;
+	border-radius: 0;
+	opacity: 1;
+	color: #fff;
+}
+.skin_green .navbar .nav > li {
+	border-top: none;
+	border-bottom: none;
+}
+.skin_green .nav {
+	padding: 0;
+}
+.skin_green .nav>li {
+	border-top: 0px solid #404c57;
+	border-bottom: 0px solid #1a1c20;
+}
+.skin_green .nav > li.active {
+	background-image: none;
+	background-color: #23283c;
+}
+.skin_green .nav > li.active ul {
+	border-bottom: 0px solid #23283c;
+}
+.skin_green .nav > li.active li {
+	border-top: none;
+}
+.skin_green .nav-second-level li:first-child {
+	margin-top: 10px;
+}
+.skin_green .tab-menu-selected {
+	background-color: #1e2025;
+	background-color: #1e2025 !important;
+	color: white !important;
+}
+.skin_green .navbar-default .nav > li > a:hover, .navbar-default .nav > li > a:focus {
+	background-color: #394263;
+}
+/*绿色皮肤top*/
+.skin_green .navbar-header .tittle {
+	color: #fff;
+	font-size: 26px;
+	line-height: 50px;
+	text-indent: 10px;
+	padding: 5px 12px;
+}
+.skin_green .navbar-fixed-top, .navbar-static-top {
+	background: url("patterns/blue.png") no-repeat left center #1AB394;
+}
+.skin_green .row .navbar-header .btn-primary, .navbar-header > .btn-primary:hover, .navbar-header > .btn-primary:focus, .navbar-header > .btn-primary:active, .navbar-header > .btn-primary.active, .navbar-header > .open .dropdown-toggle.btn-primary {
+	background-color: #fff;
+	border-color: #fff;
+	border-radius: 50%;
+	color: #1AB394;
+	outline: none;
+}
+.skin_green .border-bottom {
+	border-bottom: none !important;
+}
+.skin_green .btn-primary fa {
+	color: #007EE5;
+}
+.skin_green .minimalize-styl-2 {
+	margin: 14px 0 5px 40px;
+	padding: 5px 9px;
+}
+.skin_green .dropdown-menu {
+	border-radius: 5px;
+	left: 50%;
+	margin-left: -82px;
+}
+.skin_green .dropdown-menu > li > a {
+	color: #272930;
+	font-size: 14px;
+	letter-spacing: 1px;
+	padding: 0;
+	text-align: center;
+}
+.skin_green .dropdown-menu .divider {
+	margin: 0;
+}
+/*content*/
+body {
+	background: #f0f3f4;
+}
+#page-wrapper {
+	background: #f0f3f4;
+}
+/*绿色皮肤选项卡*/
+.skin_green .content-tabs {
+	border-top: 1px solid #1ab394;
+	border-bottom: 1px solid #b2d4cd;
+}
+.skin_green .page-tabs a.active {
+	background: #1AB394;
+	color: #fff;
+}
+.skin_green .page-tabs a.active:hover, .page-tabs a.active i:hover {
+	background: #272930;
+	color: #fff;
+}
+/*绿色皮肤图标颜色*/
+.skin_green .nav > li > a i {
+	border-radius: 50%;
+	color: #fff;
+	display: block;
+	float: left;
+	height: 24px;
+	line-height: 24px;
+	text-align: center;
+	margin: -2px 6px 0 -5px;
+	width: 24px;
+}
+.skin_green .nav > li:nth-child(2) > a i {
+	background-color: #09b9d1;
+}
+.skin_green .nav > li:nth-child(3) > a i {
+	background-color: #27c24c;
+}
+.skin_green .nav > li:nth-child(4) > a i {
+	background-color: #f99d18;
+}
+.skin_green .nav > li:nth-child(5) > a i {
+	background-color: #ff6c60;
+}
+.skin_green .nav > li:nth-child(6) > a i {
+	background-color: #ffcc00;
+}
+.skin_green .nav > li:nth-child(7) > a i {
+	background-color: #cc66ff;
+}
+.skin_green .nav > li:nth-child(8) > a i {
+	background-color: #54b5df;
+}
+
+/*绿色皮肤登录页不同分辨率下样式*/
+/*页面宽度不小于1401像素时样式*/
+@media screen and (min-width: 1401px) {
+.middle-box {
+	margin-top: -214px;
+	margin-left: -290px;
+	width: 597px;
+	height: 529px;
+}
+.loginscreen.middle-box {
+	width: 597px;
+	max-width: 597px;
+ *width: 597px !important;
+ *max-width: 597px !important;
+}
+.middle-box .login_box {
+	padding: 50px 80px 30px 80px;
+}
+.logo-name {
+	background: url("../img/logo1.png") no-repeat center center;
+	width: 250px;
+	height: 90px;
+	position: absolute;
+	top: -160px;
+	left: 50%;
+	margin-left: -125px;
+	margin-bottom: 20px;
+ *top: -110px !important;
+}
+}
+
+/*页面宽度在1101像素和1400像素宽度之间时样式*/
+@media screen and (min-width:1101px) and (max-width:1400px) {
+.middle-box {
+	background-size: 500px 433px;
+	margin-top: -208px;
+	margin-left: -250px;
+	width: 500px;
+	height: 433px;
+}
+.loginscreen.middle-box {
+	width: 500px;
+	max-width: 500px;
+ *width: 500px !important;
+ *max-width: 500px !important;
+}
+.middle-box .login_box {
+	padding: 12px 20px 30px 20px;
+}
+.logo-name {
+	background: url("../img/logo4.png") no-repeat center center;
+	width: 200px;
+	height: 72px;
+	position: absolute;
+	top: -140px;
+	left: 50%;
+	margin-left: -100px;
+	margin-bottom: 20px;
+ *top: -110px !important;
+}
+}
+
+/*页面宽度不大于1200像素时样式*/
+@media screen and (max-width: 1200px) {
+.middle-box {
+	background-size: 450px 399px;
+	margin-top: -188px;
+	margin-left: -225px;
+	width: 450px;
+	height: 399px;
+}
+.loginscreen.middle-box {
+	width: 450px;
+	max-width: 450px;
+ *width: 450px !important;
+ *max-width: 450px !important;
+}
+.middle-box .login_box {
+	padding: 2px 20px 30px 20px;
+}
+.logo-name {
+	background: url("../img/logo5.png") no-repeat center center;
+	width: 150px;
+	height: 54px;
+	position: absolute;
+	top: -120px;
+	left: 50%;
+	margin-left: -75px;
+	margin-bottom: 20px;
+ *top: -110px !important;
+}
+}

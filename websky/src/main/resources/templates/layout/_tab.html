@@ -1,0 +1,176 @@
+<div class="navbar-default navbar-static-side" role="navigation">
+    <!--<div class="nav-close"><i class="fa fa-times-circle"></i>
+    </div>-->
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <span><img alt="image" class="img-circle" src="${ctxPath}/static/img/aexit.png" width="64px" height="64px"/></span>
+
+
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="clear">
+                       <span class="block m-t-xs"><strong class="font-bold">用户名:韩晓彤</strong></span>
+                        <span class="text-muted text-xs block">用户角色:管理员&nbsp;<b class="caret"></b></span>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a class="J_menuItem" href="${ctxPath}/mgr/user_info">个人资料</a></li>
+                        <li><a class="J_menuItem" href="${ctxPath}/mgr/user_chpwd">修改密码</a></li>
+                        <li class="divider"></li>
+                        <li><a href="${ctxPath}/logout">安全退出</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="logo-element">GS
+                </div>
+            </li>
+
+
+        </ul>
+    </div>
+</div>
+
+
+
+<script src="${ctxPath}/static/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="${ctxPath}/static/js/contabs.js"></script>
+<script>
+    //初始化一级菜单
+    $(function(){
+        $.ajax({
+            url: "${ctxPath}/menu/listByUserId",
+            data: {userId: "${session.currentUser.userId}",level:"1"},
+            type: "GET",
+            success: function (firstLevelMenus) {
+                for (var i in  firstLevelMenus){
+                    if(firstLevelMenus[i].isLeaf.code == '1'){//是叶子节点
+                        $("#side-menu").append('<li>' +
+                                '<a class="J_menuItem" href="${ctxPath}' + firstLevelMenus[i].url + '" name="tabMenuItem">' +
+                                '<i class="fa ' + firstLevelMenus[i].icon + '"></i>' +
+                                '<span class="nav-label">' + firstLevelMenus[i].name + '</span>' +
+                                '</a>' +
+                                '</li>');
+                    }else{//不是叶子节点,还有下级
+                        $("#side-menu").append('<li>' +
+                                '<a  href="#">' +
+                                '<i class="fa ' + firstLevelMenus[i].icon + '"></i>' +
+                                '<span class="nav-label">' + firstLevelMenus[i].name + '</span>' +
+                                '<span class="fa arrow"></span>' +
+                                '</a>' +
+                                '<ul class="nav nav-second-level" id="secondLevelMenu' + firstLevelMenus[i].id + '"></ul>' +
+                                '</li>');
+
+                    }
+
+                }
+                secondLevelMenusInit();
+            }
+        });
+    });
+
+    //初始化二级菜单
+    function secondLevelMenusInit(){
+        $.ajax({
+            url: "${ctxPath}/menu/listByUserId",
+            data: {userId: "${session.currentUser.userId}",level:"2"},
+            type: "GET",
+            success: function (secondLevelMenus) {
+                for (var i in  secondLevelMenus){
+                    if(secondLevelMenus[i].isLeaf.code == '1'){//是叶子节点
+                        $("#secondLevelMenu"+ secondLevelMenus[i].menuPid).append('<li>' +
+                                '<a class="J_menuItem" href="${ctxPath}' + secondLevelMenus[i].url + '" name="tabMenuItem">' +
+                                '<span class="nav-label">' + secondLevelMenus[i].name + '</span>' +
+                                '</a>' +
+                                '</li>');
+
+                    }else{//不是叶子节点,还有下级
+
+                        $("#secondLevelMenu"+ secondLevelMenus[i].menuPid).append('<li>' +
+                                '<a href="#">' +
+                                secondLevelMenus[i].name + '<span class="fa arrow"></span>' +
+                                '</a>' +
+                                '<ul id="thirdLevelMenu' + secondLevelMenus[i].id + '" class="nav nav-third-level"></ul>' +
+                                '</li>');
+
+                    }
+
+                }
+                thirdLevelMenusInit();
+
+            }
+        });
+    }
+
+    //初始化三级菜单
+    function thirdLevelMenusInit(){
+        $.ajax({
+            url: "${ctxPath}/menu/list",
+            data: {level: "3"},
+            type: "GET",
+            success: function (thirdLevelMenus) {
+                for (var i in  thirdLevelMenus){
+                    if(thirdLevelMenus[i].isLeaf.code == '1'){//是叶子节点
+                        $("#thirdLevelMenu"+ thirdLevelMenus[i].menuPid).append('<li>' +
+                        '<a class="J_menuItem" href="${ctxPath}' + thirdLevelMenus[i].url + '" name="tabMenuItem">' +
+                                thirdLevelMenus[i].name +
+                        '</a>' +
+                        '</li>');
+                    }
+
+                }
+                //菜单加载完成之后,初始化菜单及Tab点击事件
+                initTabEvent();
+            }
+        });
+
+    }
+
+    /**
+     * 初始化菜单及Tab点击事件
+     */
+    function initTabEvent(){
+        // MetsiMenu
+        $('#side-menu').metisMenu();
+
+        //通过遍历给菜单项加上data-index属性
+        $(".J_menuItem").each(function (index) {
+            if (!$(this).attr('data-index')) {
+                $(this).attr('data-index', index);
+            }
+        });
+        //点击叶子节点跳转
+        $('.J_menuItem').on('click', menuItem );
+        //关闭TAB
+        $('.J_menuTabs').on('click', '.J_menuTab i', closeTab);
+        //关闭其他TAB
+        $('.J_tabCloseOther').on('click', closeOtherTabs);
+        //TAB激活
+        $('.J_tabShowActive').on('click', showActiveTab);
+
+        $('.J_menuTabs').on('click', '.J_menuTab', activeTab);
+
+        $('.J_menuTabs').on('dblclick', '.J_menuTab', refreshTab);
+
+        // 左移按扭
+        $('.J_tabLeft').on('click', scrollTabLeft);
+
+        // 右移按扭
+        $('.J_tabRight').on('click', scrollTabRight);
+
+        // 关闭全部
+        $('.J_tabCloseAll').on('click', function () {
+            $('.page-tabs-content').children("[data-id]").not(":first").each(function () {
+                $('.J_iframe[data-id="' + $(this).data('id') + '"]').remove();
+                $(this).remove();
+            });
+            $('.page-tabs-content').children("[data-id]:first").each(function () {
+                $('.J_iframe[data-id="' + $(this).data('id') + '"]').show();
+                $(this).addClass("active");
+            });
+            $('.page-tabs-content').css("margin-left", "0");
+        });
+    }
+
+
+</script>

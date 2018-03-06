@@ -1,0 +1,44 @@
+<% layout("/templates/layout/_container.html"){ %>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>菜单管理</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+
+                        <div class="row">
+                            <div class="col-lg-10 col-sm-9">
+                                <div class="row">
+                                    <#namequery id="menuNameQ" name="menuNameQ" label="菜单名称" />
+                                    <#namequery id="levelQ" name="levelQ" label="层级"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-3">
+                                <div class="row">
+                                    <div class="col-lg-12 col-sm-12">
+                                        <#button name="搜索" icon="fa-search" clickFun="Menu.search()"/>
+                                        <#button name="重置" icon="fa-trash" clickFun="Menu.resetSearch()" space="true"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hidden-xs" id="menuTableToolbar1" role="group">
+                            <#button name="添加" icon="fa-plus" clickFun="Menu.openAddMenu()"/>
+                            <#button name="修改" icon="fa-edit" clickFun="Menu.openEditMenu()" space="true"/>
+                            <#button name="删除" icon="fa-remove" clickFun="Menu.delMenu()" space="true"/>
+                            <#button name="添加图表" icon="fa-plus" clickFun="Menu.openAddChartMenu()" space="true"/>
+                        </div>
+                        <#table id="menuTable"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="${ctxPath}/static/module/baseauth/menu_manage.js"></script>
+<%}%>

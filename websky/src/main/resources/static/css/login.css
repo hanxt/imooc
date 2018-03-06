@@ -1,0 +1,146 @@
+/* 登录页面 */
+body {
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+#kaptcha {
+	height: 46px;
+}
+.col-sm-8 .form-control, .single-line {
+	width: 95%;
+}
+.col-sm-8 {
+	width: 66.6667%;
+	float: left;
+	text-align: left;
+}
+.col-sm-4 {
+	width: 33.3333%;
+	float: left;
+	text-align: right;
+}
+.btn {
+*border:none !important;
+}
+.form-control:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+ color: #000;
+opacity:1;
+}
+ .form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
+ color: #000;
+opacity:1;
+}
+ input.form-control:-ms-input-placeholder {
+ color: #000;
+opacity:1;
+}
+ input.form-control::-webkit-input-placeholder {
+ color: #000;
+opacity:1;
+}
+/*input默认颜色*/
+.form-control:-moz-placeholder {
+ color: #666;
+ opacity:1;
+}
+.form-control::-moz-placeholder {
+ color: #666;
+ opacity:1;
+}
+input.form-control:-ms-input-placeholder {
+ color: #666;
+ opacity:1;
+}
+input.form-control::-webkit-input-placeholder {
+ color: #666;
+ opacity:1;
+}
+/* login 公共样式 */
+.middle-box {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+}
+.middle-box .login_box {
+	background-color: transparent;
+	border: none;
+	box-shadow: 0 0 0 #fff;
+	padding: 50px 80px 30px 80px;
+	position: relative;
+	margin-top: 0;
+ *padding-top: 85px !important;
+}
+.logo-name {
+	height: 90px;
+	margin-left: -125px;
+	margin-bottom: 20px;
+	position: absolute;
+	top: -140px;
+	left: 50%;
+	width: 250px;
+}
+.form-control:focus, .has-error .form-control:focus {
+	box-shadow: none;
+}
+.btn-primary {
+	color: #ffffff;
+	outline: none;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary， .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.focus:active, .btn-primary:active:focus, .btn-primary:active:hover, .open > .dropdown-toggle.btn-primary.focus, .open > .dropdown-toggle.btn-primary:focus, .open > .dropdown-toggle.btn-primary:hover {
+	color: #fff;
+	font-family: "Microsoft YaHei";
+	outline: none;
+*border:none !important;
+}
+.form-control {
+	background: url("../img/icon.png") no-repeat 5px 0;
+	color: #555;
+	font-family: "Microsoft YaHei";
+	font-size: 16px;
+	height: 46px;
+	line-height: 18px;
+	padding: 12px 0;
+	text-indent: 40px;
+	width: 100%;
+ *height: 20px !important;
+}
+.navbar .form-control {
+	/*这个样式针对后台顶部搜索样式*/
+	background-image: none;
+	text-indent: 15px;
+}
+.password {
+	background-position: 5px -47px;
+}
+.code {
+	background-position: 5px -93px;
+}
+.btn {
+	font-size: 18px;
+	line-height: 22px;
+	padding: 11px;
+ *margin-top: 5px !important;
+}
+.form-group {
+	min-height: 46px;
+	position: relative;
+	padding-left: 0;
+}
+/*登录框左侧文字样式*/
+.form-group label.name {
+	display: none;
+	font-size: 16px;
+	position: absolute;
+	letter-spacing: -1px;
+	left: 0;
+	top: 12px;
+	text-align: justify;
+	text-align-last: justify;
+	width: 60px;
+ *width: 64px !important;
+}
+.form-group label.name > span {
+	display: inline-block;
+	padding-left: 100%;
+}

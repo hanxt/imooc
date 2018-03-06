@@ -1,0 +1,133 @@
+/*后台首页*/
+a {
+	color: #4c4743;
+}
+.default-skin {
+	background-color: #1ab394;
+}
+.blue-skin {
+	background-color: #06F;
+}
+.yellow-skin {
+	background-color: #f80;
+}
+.sidebar-container .skin-setttings .setings-item {
+	padding: 12px 20px 5px 20px;
+}
+.navbar {
+	height: 60px;
+	overflow: hidden;
+}
+.sidebar-container .setings-item {
+	min-height: 45px;
+	border-bottom: none;
+	padding: 0;
+}
+.setings-item.nb span {
+	float: left;
+	padding: 0;
+	text-align: center;
+	width: 100%;
+}
+.setings-item.nb span a {
+	float: left;
+	width: 100%;
+}
+/*后台页面表格样式*/
+.fixed-table-container thead th .sortable {
+	font-size: 14px;
+}
+.btn-outline {
+	font-size: 15px;
+}
+.glyphicon {
+	line-height: 24px;
+}
+.row .btn-primary {
+	background-color: #1ab394;
+	border-color: #1ab394;
+	color: #FFFFFF;
+	border-radius: 3px;
+	outline: none;
+}
+.row .button-margin {
+	margin-left: 5px !important;
+}
+.fixed-table-container .fixed-table-body {
+	height: auto;
+}
+.fixed-table-pagination .pagination-info {
+	margin-left: 10px;
+}
+.fixed-table-pagination div.pagination .pagination {
+	margin: 0 10px 0 0;
+}
+.float-e-margins .fixed-table-pagination .pagination-detail .btn {
+	margin-bottom: 0;
+}
+.table > tbody > tr > td {
+	font-size: 13px;
+}
+/*后台页面_按钮样式*/
+.hidden-xs .btn-primary {
+	border: none;
+}
+.hidden-xs .btn-primary:first-child {
+	background-color: #00ABEA;
+}
+.hidden-xs .btn-primary:first-child + .btn-primary {
+	background-color: #5cb85c;
+}
+.hidden-xs .btn-primary:first-child + .btn-primary + .btn-primary {
+	background-color: #F96773;
+}
+.hidden-xs .btn-primary:first-child + .btn-primary + .btn-primary + .btn-primary {
+	background-color: #FF6633;
+}
+.hidden-xs .btn-primary:first-child + .btn-primary + .btn-primary + .btn-primary + .btn-primary {
+	background-color: #f0ad4e;
+}
+.hidden-xs .btn-primary:first-child + .btn-primary + .btn-primary + .btn-primary + .btn-primary + .btn-primary {
+	background-color: #5bc0de;
+}
+.hidden-xs .btn-primary:first-child + .btn-primary + .btn-primary + .btn-primary + .btn-primary + .btn-primary + .btn-primary {
+	background-color: #9A86EB;
+}
+.hidden-xs .btn-primary:first-child + .btn-primary + .btn-primary + .btn-primary + .btn-primary + .btn-primary + .btn-primary + .btn-primary {
+	background-color: #1AB394;
+}
+.hidden-xs .btn-primary:first-child + .btn-primary + .btn-primary + .btn-primary + .btn-primary + .btn-primary + .btn-primary + .btn-primary + .btn-primary {
+	background-color: #FFCC00;
+}
+/*选项卡菜单*/
+nav.page-tabs .page-tabs-content {
+	padding: 5px 0;
+	line-height: 30px;
+}
+nav.page-tabs a {
+	border-right: none;
+	border-radius: 5px;
+	background-color: #e8e8fa;
+	margin: 0 5px;
+}
+.page-tabs a:hover {
+	background: #c6e6e0;
+}
+/*input默认颜色*/
+.form-control:-moz-placeholder {
+ color: #666;
+ opacity:1;
+}
+.form-control::-moz-placeholder {
+ color: #666;
+ opacity:1;
+}
+input.form-control:-ms-input-placeholder {
+ color: #666;
+ opacity:1;
+}
+input.form-control::-webkit-input-placeholder {
+ color: #666;
+ opacity:1;
+}
+

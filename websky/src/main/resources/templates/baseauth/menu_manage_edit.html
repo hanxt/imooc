@@ -1,0 +1,27 @@
+<% directive dynamic;
+layout("/templates/layout/_container.html"){ %>
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal" id="menuInfoForm">
+            <input id="id" type="hidden" value="${menu.id}"/>
+            <input type="hidden" id = "menuPid" value="${menu.menuPid}">
+            <div class="row">
+                <#input id="name" label="菜单名称" value="${menu.name}"/>
+                <#input id="url" label="菜单地址" value="${menu.url}"/>
+                <#buttoninput id="menuName" value="${menuFatherName.name}" label="父菜单选择" clickFun="MenuInfoDlg.openMenuZtree()" />
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="MenuInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="MenuInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="${ctxPath}/static/module/baseauth/menu_manage_info.js"></script>
+<% } %>

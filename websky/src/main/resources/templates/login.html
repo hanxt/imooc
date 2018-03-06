@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aexit - 登陆</title>
+
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <link href="${ctxPath}/static/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="${ctxPath}/static/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="${ctxPath}/static/css/animate.css" rel="stylesheet">
+    <link href="${ctxPath}/static/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="${ctxPath}/static/css/login.css" rel="stylesheet">
+    <script>if (window.top !== window.self) {
+        window.top.location = window.location;
+    }</script>
+    <script src="${ctxPath}/static/js/jquery-1.10.2.min.js"></script>
+    <script src="${ctxPath}/static/js/bootstrap.min.js?v=3.3.6"></script>
+    <link href="${ctxPath}/static/css/${skin_css}" rel="stylesheet"><!--皮肤1-->
+    <script src="${ctxPath}/static/js/common/aexit.js"></script>
+    
+</head>
+
+<body class="gray-bg">
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div class="login_box">
+        <div>
+            <h1 class="logo-name"></h1>
+        </div>
+        <h4 id="tips" style="color: red;"></h4>
+        <div class="form-group">
+            <label class="name">用 户 名<span></span></label>
+            <input type="text" id="user_id" name="user_id" class="form-control" placeholder="用户ID" onKeyPress="IsEnterKeyPress()" required>
+        </div>
+        <div class="form-group">
+            <label class="name">密 码<span></span></label>
+            <input type="password" id="password" name="password" class="form-control password" placeholder="密码" onKeyPress="IsEnterKeyPress()" required>
+        </div>
+
+        <div class="form-group">
+            <label class="name">验 证 码<span></span></label>
+            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
+                <input class="form-control  code" id="ckaptcha" type="text" name="kaptcha" placeholder="验证码" onKeyPress="IsEnterKeyPress()" required>
+            </div>
+            <div class="col-sm-4" style="padding-left: 0px; padding-right: 0px;">
+                <img src="${ctxPath}/kaptcha" id="kaptcha" width="100%" height="100%"/>
+            </div>
+        </div>
+
+        <button type="submit" onclick="loginFn()" class="btn btn-primary block full-width m-b">登 录</button>
+        </p>
+    </div>
+</div>
+
+<script>
+    $(function(){
+        //点击更换验证码
+        $("#kaptcha").on('click',function(){
+            $("#kaptcha").attr('src', '/kaptcha?' + Math.floor(Math.random()*100) ).fadeIn();
+        });
+
+        document.body.style.backgroundImage="url(${skin_body_img})";
+        $(".logo-name").css("background-image","url(${skin_logo_img})");
+    });
+
+    // 按回车
+    function IsEnterKeyPress(){
+        var lKeyCode = (navigator.appname=="Netscape")?event.which:window.event.keyCode;
+        if ( lKeyCode == 13 ){
+            loginFn();
+        }
+    }
+
+    //登陆动作
+    function loginFn (){
+        var user_id = $('#user_id').val();
+        var password = $('#password').val();
+        var userValidateCode = $('#ckaptcha').val();
+        $.ajax({
+            type: "POST",
+            data: {
+                "user_id":user_id,
+                "password":password,
+                "user_validate_code":userValidateCode
+            },
+            url: Aexit.ctxPath + "/login",
+            dataType: "json",
+            cache: false,
+            success: function(data){
+                if(data.code == 0){
+                    window.location.href = "/index";
+                }else{
+                    $("#tips").text(data.message);
+                }
+            },error : function(XMLHttpRequest, textStatus, errorThrown) {
+                $("#tips").val("网络或服务器出现问题,请稍后再试!");
+            }
+        });
+
+    }
+</script>
+</body>
+
+</html>
