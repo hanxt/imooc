@@ -5,19 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>net.aexit.galaxy</groupId>
-    <artifactId>galaxy</artifactId>
+    <artifactId>imooc</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>
     <modules>
-        <module>earth-common</module>
-        <module>earth-workflow</module>
-        <module>star-ureport2</module>
         <module>websky</module>
-        <module>earth-dbpool</module>
-        <module>earth-distributedsession</module>
-        <module>earth-accesslimit</module>
-        <module>earth-codegenerator</module>
-        <module>earth-mediashare</module>
     </modules>
 
     <properties>
