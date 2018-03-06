@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zimug.imooc.websky.common.mapper.SysOrgMapper">
+    <resultMap id="BaseResultMap" type="com.zimug.imooc.websky.common.model.SysOrg">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="org_pid" property="orgPid" jdbcType="INTEGER"/>
+        <result column="org_pids" property="orgPids" jdbcType="VARCHAR"/>
+        <result column="is_leaf" property="isLeaf" jdbcType="TINYINT"/>
+        <result column="org_name" property="orgName" jdbcType="VARCHAR"/>
+        <result column="address" property="address" jdbcType="VARCHAR"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="email" property="email" jdbcType="VARCHAR"/>
+        <result column="sort" property="sort" jdbcType="TINYINT"/>
+        <result column="level" property="level" jdbcType="TINYINT"/>
+        <result column="status" property="status" jdbcType="TINYINT"/>
+        <result column="spare_one" property="spareOne" jdbcType="VARCHAR"/>
+        <result column="spare_two" property="spareTwo" jdbcType="VARCHAR"/>
+        <result column="spare_three" property="spareThree" jdbcType="VARCHAR"/>
+        <result column="spare_four" property="spareFour" jdbcType="VARCHAR"/>
+        <result column="spare_five" property="spareFive" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+    id, org_pid, org_pids, is_leaf, org_name, address, phone, email, sort, level, status
+  </sql>
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="com.zimug.imooc.websky.common.model.SysOrgExample">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from sys_org
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+        <if test="limit != null">
+            <if test="offset != null">
+                limit ${offset}, ${limit}
+            </if>
+            <if test="offset == null">
+                limit ${limit}
+            </if>
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_org
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_org
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <delete id="deleteByExample" parameterType="com.zimug.imooc.websky.common.model.SysOrgExample">
+        delete from sys_org
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.zimug.imooc.websky.common.model.SysOrg" useGeneratedKeys="true"
+            keyProperty="id">
+    insert into sys_org (id, org_pid, org_pids, 
+      is_leaf, org_name, address, 
+      phone, email, sort, 
+      level, status,spare_one,spare_two,spare_three,spare_four,spare_five)
+    values (#{id,jdbcType=INTEGER}, #{orgPid,jdbcType=INTEGER}, #{orgPids,jdbcType=VARCHAR}, 
+      #{isLeaf,jdbcType=TINYINT}, #{orgName,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{sort,jdbcType=TINYINT}, 
+      #{level,jdbcType=TINYINT}, #{status,jdbcType=TINYINT}, #{spareOne,jdbcType=VARCHAR},
+      #{spareTwo,jdbcType=VARCHAR}, #{spareThree,jdbcType=VARCHAR}, #{spareFour,jdbcType=VARCHAR}, #{spareFive,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.zimug.imooc.websky.common.model.SysOrg">
+        insert into sys_org
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="orgPid != null">
+                org_pid,
+            </if>
+            <if test="orgPids != null">
+                org_pids,
+            </if>
+            <if test="isLeaf != null">
+                is_leaf,
+            </if>
+            <if test="orgName != null">
+                org_name,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="sort != null">
+                sort,
+            </if>
+            <if test="level != null">
+                level,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="spareOne != null">
+                spare_one,
+            </if>
+            <if test="spareTwo != null">
+                spare_two,
+            </if>
+            <if test="spareThree != null">
+                spare_three,
+            </if>
+            <if test="spareFour != null">
+                spare_four,
+            </if>
+            <if test="spareFive != null">
+                spare_five,
+            </if>
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="orgPid != null">
+                #{orgPid,jdbcType=INTEGER},
+            </if>
+            <if test="orgPids != null">
+                #{orgPids,jdbcType=VARCHAR},
+            </if>
+            <if test="isLeaf != null">
+                #{isLeaf,jdbcType=TINYINT},
+            </if>
+            <if test="orgName != null">
+                #{orgName,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="sort != null">
+                #{sort,jdbcType=TINYINT},
+            </if>
+            <if test="level != null">
+                #{level,jdbcType=TINYINT},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=TINYINT},
+            </if>
+            <if test="spareOne != null">
+                #{spareOne,jdbcType=VARCHAR},
+            </if>
+            <if test="spareTwo != null">
+                #{spareTwo,jdbcType=VARCHAR},
+            </if>
+            <if test="spareThree != null">
+                #{spareThree,jdbcType=VARCHAR},
+            </if>
+            <if test="spareFour != null">
+                #{spareFour,jdbcType=VARCHAR},
+            </if>
+            <if test="spareFive != null">
+                #{spareFive,jdbcType=VARCHAR}),
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.zimug.imooc.websky.common.model.SysOrgExample"
+            resultType="java.lang.Integer">
+        select count(*) from sys_org
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update sys_org
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=INTEGER},
+            </if>
+            <if test="record.orgPid != null">
+                org_pid = #{record.orgPid,jdbcType=INTEGER},
+            </if>
+            <if test="record.orgPids != null">
+                org_pids = #{record.orgPids,jdbcType=VARCHAR},
+            </if>
+            <if test="record.isLeaf != null">
+                is_leaf = #{record.isLeaf,jdbcType=TINYINT},
+            </if>
+            <if test="record.orgName != null">
+                org_name = #{record.orgName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.address != null">
+                address = #{record.address,jdbcType=VARCHAR},
+            </if>
+            <if test="record.phone != null">
+                phone = #{record.phone,jdbcType=VARCHAR},
+            </if>
+            <if test="record.email != null">
+                email = #{record.email,jdbcType=VARCHAR},
+            </if>
+            <if test="record.sort != null">
+                sort = #{record.sort,jdbcType=TINYINT},
+            </if>
+            <if test="record.level != null">
+                level = #{record.level,jdbcType=TINYINT},
+            </if>
+            <if test="record.status != null">
+                status = #{record.status,jdbcType=TINYINT},
+            </if>
+            <if test="spareOne != null">
+                spare_one=#{record.spareOne,jdbcType=VARCHAR},
+            </if>
+            <if test="spareTwo != null">
+                spare_two= #{record.spareTwo,jdbcType=VARCHAR},
+            </if>
+            <if test="spareThree != null">
+                spare_three=#{record.spareThree,jdbcType=VARCHAR},
+            </if>
+            <if test="spareFour != null">
+                spare_four=#{record.spareFour,jdbcType=VARCHAR},
+            </if>
+            <if test="spareFive != null">
+                spare_five= #{record.spareFive,jdbcType=VARCHAR}),
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update sys_org
+        set id = #{record.id,jdbcType=INTEGER},
+        org_pid = #{record.orgPid,jdbcType=INTEGER},
+        org_pids = #{record.orgPids,jdbcType=VARCHAR},
+        is_leaf = #{record.isLeaf,jdbcType=TINYINT},
+        org_name = #{record.orgName,jdbcType=VARCHAR},
+        address = #{record.address,jdbcType=VARCHAR},
+        phone = #{record.phone,jdbcType=VARCHAR},
+        email = #{record.email,jdbcType=VARCHAR},
+        sort = #{record.sort,jdbcType=TINYINT},
+        level = #{record.level,jdbcType=TINYINT},
+        status = #{record.status,jdbcType=TINYINT},
+        spare_one=#{record.spareOne,jdbcType=VARCHAR},
+        spare_two= #{record.spareTwo,jdbcType=VARCHAR},
+        spare_three=#{record.spareThree,jdbcType=VARCHAR},
+        spare_four=#{record.spareFour,jdbcType=VARCHAR},
+        spare_five= #{record.spareFive,jdbcType=VARCHAR})
+
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.zimug.imooc.websky.common.model.SysOrg">
+        update sys_org
+        <set>
+            <if test="orgPid != null">
+                org_pid = #{orgPid,jdbcType=INTEGER},
+            </if>
+            <if test="orgPids != null">
+                org_pids = #{orgPids,jdbcType=VARCHAR},
+            </if>
+            <if test="isLeaf != null">
+                is_leaf = #{isLeaf,jdbcType=TINYINT},
+            </if>
+            <if test="orgName != null">
+                org_name = #{orgName,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                address = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="sort != null">
+                sort = #{sort,jdbcType=TINYINT},
+            </if>
+            <if test="level != null">
+                level = #{level,jdbcType=TINYINT},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=TINYINT},
+            </if>
+            <if test="spareOne != null">
+                spare_one=#{spareOne,jdbcType=VARCHAR},
+            </if>
+            <if test="spareTwo != null">
+                spare_two= #{spareTwo,jdbcType=VARCHAR},
+            </if>
+            <if test="spareThree != null">
+                spare_three=#{spareThree,jdbcType=VARCHAR},
+            </if>
+            <if test="spareFour != null">
+                spare_four=#{spareFour,jdbcType=VARCHAR},
+            </if>
+            <if test="spareFive != null">
+                spare_five= #{spareFive,jdbcType=VARCHAR}),
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.zimug.imooc.websky.common.model.SysOrg">
+    update sys_org
+    set org_pid = #{orgPid,jdbcType=INTEGER},
+      org_pids = #{orgPids,jdbcType=VARCHAR},
+      is_leaf = #{isLeaf,jdbcType=TINYINT},
+      org_name = #{orgName,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=TINYINT},
+      level = #{level,jdbcType=TINYINT},
+      status = #{status,jdbcType=TINYINT},
+      spare_one=#{spareOne,jdbcType=VARCHAR},
+      spare_two= #{spareTwo,jdbcType=VARCHAR},
+      spare_three=#{spareThree,jdbcType=VARCHAR},
+      spare_four=#{spareFour,jdbcType=VARCHAR},
+      spare_five= #{spareFive,jdbcType=VARCHAR})
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

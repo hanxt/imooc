@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zimug.imooc.websky.baseauth.api.mapper.SysOrgExtMapper" >
+
+  <sql id="Base_Column_List" >
+    id, org_pid, org_pids, is_leaf, org_name, address, phone, email, sort, level, status
+  </sql>
+
+  <select id="listOrg" resultType="com.zimug.imooc.websky.common.model.SysOrg">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM sys_org
+    <trim prefix="WHERE" prefixOverrides="AND|OR" suffixOverrides="AND|OR">
+      <if test="orgName !=null and  orgName != '' " >
+        AND  org_name LIKE CONCAT('%',#{orgName},'%')
+      </if>
+      <if test="level !=null and  level != '' " >
+        AND  level = #{level}
+      </if>
+    </trim>
+  </select>
+
+</mapper>
